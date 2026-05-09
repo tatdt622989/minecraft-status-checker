@@ -62,6 +62,6 @@ app.get("/server-status", (req, res) => {
 
 
 // 啟動伺服器
-app.listen(PORT, () => {
-    console.log(`API 啟動成功：http://localhost:${PORT}/status`);
+app.listen(PORT, '0.0.0.0', () => {
+    console.log(`API 啟動成功：http://0.0.0.0:${PORT}/status`);
 });
