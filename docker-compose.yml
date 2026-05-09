@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  api:
+    build: .
+    image: mc_checker_base
+    container_name: mc_checker_api
+    command: npm run start:api
+    env_file:
+      - .env
+    restart: unless-stopped
+
+  bot:
+    image: mc_checker_base
+    container_name: mc_checker_bot
+    command: npm run start:bot
+    env_file:
+      - .env
+    environment:
+      # 透過 Docker 內部網路，bot 可以直接解析 "api" 這個服務名稱
+      - API_BASE_URL=http://api:3019
+    depends_on:
+      - api
+    restart: unless-stopped
