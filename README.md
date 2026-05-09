@@ -29,6 +29,10 @@ CHANNEL_ID2=用來顯示線上人數與玩家列表的頻道_ID
 API_PORT=3019
 MC_SERVER_HOST=你的_Minecraft_伺服器_IP
 MC_SERVER_PORT=25565
+
+# 內部服務連線設定
+# 若使用 docker-compose，會自動被覆蓋為 http://api:3019；若本地獨立運行，請保持 localhost 設定
+API_BASE_URL=http://localhost:3019
 ```
 
 ### 3. 啟動服務
